@@ -1,0 +1,66 @@
+<div class="container mt-4" >
+    <div class="card">
+            <h1>Adding Employee</h1>
+    <form>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="employeeName" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" [(ngModel)]="employeeId" [ngModelOptions]="{standalone: true}"  class="form-control" id="address" placeholder="Enter address">
+      
+          </div>
+          <div class="form-group">
+            <label>Employee Age</label>
+            <input type="text" [(ngModel)]="employeeAge" [ngModelOptions]="{standalone: true}" class="form-control" id="mobile" placeholder="Enter Mobile">
+      
+          </div>
+          <div class="form-group">
+            <label>Emplyee National ID</label>
+            <input type="text" [(ngModel)]="employeeNationalId" [ngModelOptions]="{standalone: true}" class="form-control" id="mobile" placeholder="Enter Mobile">
+      
+          </div>
+          <div class="form-group">
+            <label>emplyee Branch ID</label>
+            <input type="text" [(ngModel)]="employeeBranchId" [ngModelOptions]="{standalone: true}" class="form-control" id="mobile" placeholder="Enter Mobile">
+      
+          </div>
+        
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Submit</button>
+      </form>
+    </div>
+    <div>
+        <div class="container mt-4" >
+            <h1>Employee Table</h1>
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+            
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">National ID</th>
+                <th scope="col">Branch ID</th>
+                <th scope="col">Option</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tempEmployee of EmployeeArray">
+                <th scope="row">{{tempEmployee.id  }}</th>
+                <td>{{tempEmployee.name}}</td>
+                <td>{{tempEmployee.age }}</td>
+                <td>{{tempEmployee.nationalId  }}</td>
+                <td>{{tempEmployee.branchId }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(tempEmployee)">Edit</button>
+                  
+                  <button type="button" class="btn btn-danger" (click)="setDelete(tempEmployee)">Delete</button>
+                
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
